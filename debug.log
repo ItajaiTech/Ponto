@@ -2219,3 +2219,27 @@
 2026-04-29 16:27:43 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:27:43] "[36mGET /favicon.ico HTTP/1.1[0m" 304 -
 2026-04-29 16:27:46 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:27:46] "GET /admin/espelho?usuario_id=2 HTTP/1.1" 200 -
 2026-04-29 16:27:46 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:27:46] "[36mGET /favicon.ico HTTP/1.1[0m" 304 -
+2026-04-29 16:30:13 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6050
+ * Running on http://192.168.1.10:6050
+2026-04-29 16:30:13 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6000
+ * Running on http://192.168.1.10:6000
+2026-04-29 16:30:13 INFO werkzeug [33mPress CTRL+C to quit[0m
+2026-04-29 16:30:13 INFO werkzeug [33mPress CTRL+C to quit[0m
+2026-04-29 16:30:13 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5050
+ * Running on https://192.168.1.10:5050
+2026-04-29 16:30:13 INFO werkzeug [33mPress CTRL+C to quit[0m
+2026-04-29 16:30:13 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://192.168.1.10:5000
+2026-04-29 16:30:13 INFO werkzeug [33mPress CTRL+C to quit[0m
+2026-04-29 16:30:27 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:30:27] "HEAD /favicon.ico HTTP/1.1" 200 -
+2026-04-29 16:30:27 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:30:27] "HEAD /favicon.ico HTTP/1.1" 200 -
+2026-04-29 16:30:40 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:30:40] "GET / HTTP/1.1" 200 -
+2026-04-29 16:30:40 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:30:40] "GET /favicon.ico HTTP/1.1" 200 -
