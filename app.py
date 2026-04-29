@@ -3219,11 +3219,11 @@ def login():
                 senha_ok = True
 
         if user and senha_ok:
-            porta = request.environ.get('SERVER_PORT')
-            append_debug_log(f"Login OK: id={user['id']} tipo={user['tipo']} porta={porta}")
-            if porta == '5050' and user["tipo"] != "admin":
-                erro = "Acesso negado! Somente administradores podem fazer login pela porta 5050."
-                append_debug_log("Acesso negado na porta 5050 para não-admin.")
+            host = (request.host.split(':')[0] if request.host else '').strip().lower()
+            append_debug_log(f"Login OK: id={user['id']} tipo={user['tipo']} host={host}")
+            if host == 'ponto.admin' and user["tipo"] != "admin":
+                erro = "Acesso negado! Somente administradores podem fazer login em ponto.admin."
+                append_debug_log("Acesso negado em ponto.admin para não-admin.")
                 return render_with_theme(LOGIN_HTML, erro=erro)
 
             session["user_id"] = user["id"]
@@ -5510,61 +5510,59 @@ if __name__ == "__main__":
     else:
         print("[SSL] AVISO - Certificados nao encontrados - usando HTTP")
 
+    https_port = int(os.getenv('PONTO_HTTPS_PORT', '443'))
+    http_port = int(os.getenv('PONTO_HTTP_PORT', '80'))
+
     # Criar aplicação para HTTP que redireciona para HTTPS
     app_http_redirect = Flask(__name__)
     
     @app_http_redirect.route('/', defaults={'path': ''})
     @app_http_redirect.route('/<path:path>')
     def redirect_to_https(path):
-        # Obter host e porta do request
         host = request.host.split(':')[0]
-        # Determinar porta HTTPS baseado na porta HTTP
-        http_port = int(request.host.split(':')[1])
-        https_port = 5050 if http_port == 6050 else 5000
-        
-        url = 'https://{}:{}/{}'.format(host, https_port, path)
+
+        if https_port == 443:
+            url = 'https://{}/{}'.format(host, path)
+        else:
+            url = 'https://{}:{}/{}'.format(host, https_port, path)
         if request.query_string:
             url = url + '?' + request.query_string.decode()
         return redirect(url, code=301)
 
-    # Executar a mesma aplicação em duas portas:
-    # - 5000: porta principal HTTPS de desenvolvimento
-    # - 5050: porta dedicada HTTPS para admin/login
-    # - 6000: porta HTTP que redireciona para 5000
-    # - 6050: porta HTTP que redireciona para 5050
+    # Executar app HTTPS principal e redirect HTTP sem expor portas na URL
     def run_port(app, port, debug_mode=False, ssl_ctx=None):
         try:
             app.run(host='0.0.0.0', port=port, debug=debug_mode, use_reloader=False, ssl_context=ssl_ctx)
         except OSError as e:
             print("[ERROR] Porta {} em uso: {}".format(port, e))
 
-    # Iniciar servidor de redirect HTTP em background (porta 6000 -> 5000)
+    # Iniciar servidor de redirect HTTP em background (80 -> 443)
     if use_ssl:
-        t1 = threading.Thread(target=run_port, args=(app_http_redirect, 6000, False, None), daemon=True)
+        t1 = threading.Thread(target=run_port, args=(app_http_redirect, http_port, False, None), daemon=True)
         t1.start()
-        
-        # Iniciar servidor de redirect HTTP para admin em background (porta 6050 -> 5050)
-        t2 = threading.Thread(target=run_port, args=(app_http_redirect, 6050, False, None), daemon=True)
-        t2.start()
-
-    # Iniciar servidor HTTPS principal em background (port 5050, admin)
-    t3 = threading.Thread(target=run_port, args=(app, 5050, False, ssl_context), daemon=True)
-    t3.start()
 
     proto = "https" if use_ssl else "http"
     print("")
     print("Servidor iniciado:")
-    print("  Funcionario: " + proto + "://ponto.local:5000")
-    print("  Admin:       " + proto + "://ponto.admin:5050")
+    if https_port == 443:
+        print("  Funcionario: " + proto + "://ponto.local")
+        print("  Admin:       " + proto + "://ponto.admin")
+    else:
+        print("  Funcionario: " + proto + "://ponto.local:{}".format(https_port))
+        print("  Admin:       " + proto + "://ponto.admin:{}".format(https_port))
     if use_ssl:
         print("")
         print("Redirects HTTP automaticos:")
-        print("  http://ponto.local:5000     (porta 6000) -> https://ponto.local:5000")
-        print("  http://ponto.admin:5050     (porta 6050) -> https://ponto.admin:5050")
+        if https_port == 443:
+            print("  http://ponto.local -> https://ponto.local")
+            print("  http://ponto.admin -> https://ponto.admin")
+        else:
+            print("  http://ponto.local -> https://ponto.local:{}".format(https_port))
+            print("  http://ponto.admin -> https://ponto.admin:{}".format(https_port))
     print("")
     
-    # Rodar servidor HTTPS principal (bloqueante - porta 5000)
-    run_port(app, 5000, True, ssl_context)
+    # Rodar servidor HTTPS principal (bloqueante)
+    run_port(app, https_port, True, ssl_context)
 
 
 

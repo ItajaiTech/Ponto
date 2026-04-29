@@ -12,5 +12,7 @@ if (-not (Test-Path $pythonExe)) {
 }
 
 Set-Location $appPath
-Write-Host "Iniciando RelogioPonto (portas 5000/5050 e redirects 6000/6050)" -ForegroundColor Green
+$env:PONTO_HTTPS_PORT = "5000"
+$env:PONTO_HTTP_PORT = "6000"
+Write-Host "Iniciando RelogioPonto (backend HTTPS 5000 e HTTP 6000 para proxy)" -ForegroundColor Green
 & $pythonExe "$appPath\app.py"

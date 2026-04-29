@@ -46,6 +46,8 @@ if (Test-Path "$appPath\session.db") {
 Write-Log "Iniciando Flask..."
 try {
     Set-Location $appPath
+    $env:PONTO_HTTPS_PORT = "5000"
+    $env:PONTO_HTTP_PORT = "6000"
     # Executa em background, sem janela visível
     $process = Start-Process -FilePath $pythonExe `
                             -ArgumentList $appScript `

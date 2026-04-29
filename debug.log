@@ -2243,3 +2243,44 @@
 2026-04-29 16:30:27 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:30:27] "HEAD /favicon.ico HTTP/1.1" 200 -
 2026-04-29 16:30:40 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:30:40] "GET / HTTP/1.1" 200 -
 2026-04-29 16:30:40 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:30:40] "GET /favicon.ico HTTP/1.1" 200 -
+2026-04-29 16:40:28 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:80
+ * Running on http://192.168.1.10:80
+2026-04-29 16:40:28 INFO werkzeug [33mPress CTRL+C to quit[0m
+2026-04-29 16:40:28 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:443
+ * Running on https://192.168.1.10:443
+2026-04-29 16:40:28 INFO werkzeug [33mPress CTRL+C to quit[0m
+2026-04-29 16:40:50 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:40:50] "HEAD / HTTP/1.1" 200 -
+2026-04-29 16:40:53 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:40:53] "HEAD / HTTP/1.1" 200 -
+2026-04-29 16:40:56 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:40:56] "[32mHEAD / HTTP/1.1[0m" 301 -
+2026-04-29 16:40:56 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:40:56] "[32mHEAD / HTTP/1.1[0m" 301 -
+2026-04-29 16:41:20 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:41:20] "GET / HTTP/1.1" 200 -
+2026-04-29 16:41:20 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:41:20] "GET /favicon.ico HTTP/1.1" 200 -
+2026-04-29 16:41:28 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:41:28] "GET / HTTP/1.1" 200 -
+2026-04-29 16:41:28 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:41:28] "GET /favicon.ico HTTP/1.1" 200 -
+2026-04-29 16:41:35 DEBUG login Tentativa: entrada='075.628.409-03' cpf_normalizado='07562840903'
+2026-04-29 16:41:35 DEBUG login Usuário encontrado: id=2 tipo=funcionario cpf=07562840903
+2026-04-29 16:41:35 DEBUG login Login OK: id=2 tipo=funcionario host=ponto.local
+2026-04-29 16:41:35 DEBUG login Redirecionando funcionário para /funcionario.
+2026-04-29 16:41:35 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:41:35] "[32mPOST / HTTP/1.1[0m" 302 -
+2026-04-29 16:41:35 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:41:35] "GET /funcionario HTTP/1.1" 200 -
+2026-04-29 16:41:51 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:41:51] "GET / HTTP/1.1" 200 -
+2026-04-29 16:41:59 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:41:59] "GET / HTTP/1.1" 200 -
+2026-04-29 16:41:59 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:41:59] "GET /favicon.ico HTTP/1.1" 200 -
+2026-04-29 16:43:09 DEBUG login Tentativa: entrada='00000000000' cpf_normalizado='00000000000'
+2026-04-29 16:43:09 DEBUG login Usuário encontrado: id=1 tipo=admin cpf=00000000000
+2026-04-29 16:43:09 DEBUG login Login OK: id=1 tipo=admin host=ponto.admin
+2026-04-29 16:43:09 DEBUG login Redirecionando admin para ADMIN_ROUTE.
+2026-04-29 16:43:09 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:43:09] "[32mPOST / HTTP/1.1[0m" 302 -
+2026-04-29 16:43:09 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:43:09] "[32mGET /admin HTTP/1.1[0m" 302 -
+2026-04-29 16:43:09 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:43:09] "GET /admin/espelho?usuario_id=1 HTTP/1.1" 200 -
+2026-04-29 16:43:11 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:43:11] "GET /admin HTTP/1.1" 200 -
+2026-04-29 16:43:13 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:43:13] "GET /dashboard HTTP/1.1" 200 -
+2026-04-29 16:43:15 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:43:15] "GET /admin/empresa HTTP/1.1" 200 -
+2026-04-29 16:43:16 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:43:16] "GET /admin/funcionarios HTTP/1.1" 200 -
+2026-04-29 16:43:16 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:43:16] "GET /static/cpf.js HTTP/1.1" 200 -
+2026-04-29 16:45:02 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:45:02] "GET / HTTP/1.1" 200 -
+2026-04-29 16:45:02 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:45:02] "GET /favicon.ico HTTP/1.1" 200 -
