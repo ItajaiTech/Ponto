@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{background:linear-gradient(135deg,#141e30,#243b55);font-family:Inter,sans-serif;color:white;padding:30px}
+.card{background:rgba(255,255,255,0.06);padding:20px;border-radius:12px;margin-bottom:20px}
+table{width:100%;border-collapse:collapse}
+td,th{padding:8px;border-bottom:1px solid rgba(255,255,255,0.04)}
+input,select{padding:8px;border-radius:6px;border:none}
+button{padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+.btn-edit{background:#00c6ff;color:#001}
+.btn-del{background:#e74c3c;color:white}
+</style>
+</head>
+<body>
+<a href="/admin" style="color:#fff;display:inline-block;margin-bottom:12px;">← Voltar</a>
+<div class="card">
+<h2>Espelho de Ponto — Willian de MIranda</h2>
+<p>Mês: 02 / Ano: 2026</p>
+
+<table>
+<tr><th>Data Hora</th><th>Tipo</th><th>Ações</th></tr>
+
+<tr>
+<td>2026-02-02T08:00</td>
+<td>entrada</td>
+<td>
+    <form method="POST" action="/admin/registro/editar" style="display:inline-block;margin-right:6px;">
+        <input type="hidden" name="registro_id" value="1">
+        <input type="hidden" name="usuario_id" value="2">
+        <input name="data_hora" type="datetime-local" value="2026-02-02T08:00">
+        <select name="tipo">
+            <option value="entrada" selected>Entrada</option>
+            <option value="saida" >Saída</option>
+        </select>
+        <button class="btn-edit">Salvar</button>
+    </form>
+    <form method="POST" action="/admin/registro/deletar" style="display:inline-block;">
+        <input type="hidden" name="registro_id" value="1">
+        <input type="hidden" name="usuario_id" value="2">
+        <button class="btn-del">Excluir</button>
+    </form>
+</td>
+</tr>
+
+</table>
+
+</div>
+</body>
+</html>

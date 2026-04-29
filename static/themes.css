@@ -1,0 +1,261 @@
+/* ============================================
+   TEMA GREEN (Verde) - Padrão
+   ============================================ */
+:root[data-theme="green"] {
+    --bg-gradient-1: #0f2027;
+    --bg-gradient-2: #203a43;
+    --bg-gradient-3: #2c5364;
+    --accent-primary: #00c6ff;
+    --accent-secondary: #0072ff;
+    --accent-glow: rgba(0, 198, 255, 0.15);
+    --particle-1: rgba(0, 198, 255, 0.15);
+    --particle-2: rgba(44, 83, 100, 0.2);
+    --particle-3: rgba(32, 58, 67, 0.15);
+}
+
+/* ============================================
+   TEMA RED (Vermelho)
+   ============================================ */
+:root[data-theme="red"] {
+    --bg-gradient-1: #150a0f;
+    --bg-gradient-2: #24131c;
+    --bg-gradient-3: #2f1a22;
+    --accent-primary: #f07a7a;
+    --accent-secondary: #d46a74;
+    --accent-glow: rgba(240, 122, 122, 0.16);
+    --particle-1: rgba(240, 122, 122, 0.14);
+    --particle-2: rgba(140, 70, 86, 0.2);
+    --particle-3: rgba(90, 38, 50, 0.16);
+}
+
+/* ============================================
+   TEMA BLUE (Azul)
+   ============================================ */
+:root[data-theme="blue"] {
+    --bg-gradient-1: #0a0f27;
+    --bg-gradient-2: #1a2a5e;
+    --bg-gradient-3: #2a3f7a;
+    --accent-primary: #4d9fff;
+    --accent-secondary: #1e5eff;
+    --accent-glow: rgba(77, 159, 255, 0.15);
+    --particle-1: rgba(77, 159, 255, 0.15);
+    --particle-2: rgba(42, 63, 122, 0.2);
+    --particle-3: rgba(26, 42, 94, 0.15);
+}
+
+/* ============================================
+   Aplicação dos Temas
+   ============================================ */
+body {
+    background: linear-gradient(135deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3)) !important;
+}
+
+body::before {
+    background-image: 
+        radial-gradient(circle at 20% 80%, var(--particle-1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--particle-2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, var(--particle-3) 0%, transparent 50%) !important;
+}
+
+/* Atualiza cores de acento */
+.sidebar h2,
+.card h2,
+.section-head h3 {
+    background: linear-gradient(135deg, #fff, var(--accent-primary)) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
+    box-shadow: 0 4px 15px var(--accent-glow) !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 6px 25px var(--accent-glow) !important;
+}
+
+/* Contraste consistente em botões e titulos */
+.btn,
+button {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+.sidebar h2,
+.card h2,
+.section-head h3 {
+    color: #f5f7fb !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+
+.sidebar nav a.active {
+    background: linear-gradient(135deg, var(--accent-glow), rgba(var(--accent-primary), 0.05)) !important;
+    border: 1px solid var(--accent-glow) !important;
+    box-shadow: 0 8px 25px var(--accent-glow) !important;
+}
+
+/* Melhor contraste nas guias/links do menu */
+.sidebar nav a {
+    color: #f5f7fb !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a:focus {
+    color: #ffffff !important;
+    outline: 2px solid rgba(255, 255, 255, 0.25) !important;
+    outline-offset: 2px !important;
+}
+
+.sidebar nav a.active {
+    color: #ffffff !important;
+}
+
+/* Botões secundários com contraste */
+.btn-secondary,
+.btn-danger {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45) !important;
+}
+
+.btn-secondary:hover,
+.btn-danger:hover {
+    filter: brightness(1.05) !important;
+}
+
+input:focus, select:focus {
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 3px var(--accent-glow), 0 4px 20px var(--accent-glow) !important;
+}
+
+/* Inputs e labels com contraste consistente */
+label,
+.form-label,
+.info-label {
+    color: #e6ebf2 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+
+input,
+select,
+textarea {
+    color: #f8fafc !important;
+    background: rgba(15, 20, 30, 0.6) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Opcoes de select com fundo escuro */
+select option {
+    background: #1a2332 !important;
+    color: #f8fafc !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(248, 250, 252, 0.65) !important;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled,
+button:disabled {
+    color: rgba(255, 255, 255, 0.7) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    cursor: not-allowed !important;
+}
+
+/* Badges com texto legivel */
+.badge-entrada,
+.badge-saida {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+.table thead {
+    background: linear-gradient(135deg, var(--accent-glow), rgba(var(--accent-primary), 0.1)) !important;
+}
+
+.table th {
+    color: var(--accent-primary) !important;
+    border-bottom: 2px solid var(--accent-primary) !important;
+}
+
+.table td,
+table td,
+table th {
+    color: #f2f5f9 !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Contraste em cards e textos gerais */
+.card,
+.chart-card,
+.message-card {
+    color: #f2f5f9 !important;
+}
+
+.card p,
+.card span,
+.card li,
+.chart-card p {
+    color: #e9edf3 !important;
+}
+
+a[href*="espelho"] {
+    color: var(--accent-primary) !important;
+}
+
+/* Links em tabelas e cards */
+table a,
+.card a,
+.chart-card a {
+    color: #9fd8ff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+}
+
+table a:hover,
+.card a:hover,
+.chart-card a:hover {
+    color: #d7efff !important;
+}
+
+/* Alertas e toasts */
+.alert,
+.message-card,
+.toast {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+}
+
+.alert-success,
+.alert-error {
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.form-section h4,
+.card h4 {
+    color: var(--accent-primary) !important;
+}
+
+.section-head {
+    border-bottom: 2px solid var(--accent-glow) !important;
+}
+
+.message-card {
+    border-left: 4px solid var(--accent-primary) !important;
+}
+
+.btn-export.btn-excel,
+.btn-export.btn-afd,
+.chart-card h3 {
+    color: var(--accent-primary) !important;
+}

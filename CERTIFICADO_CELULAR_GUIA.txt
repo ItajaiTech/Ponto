@@ -1,0 +1,232 @@
+CERTIFICADO SSL PARA CELULAR - GUIA COMPLETO
+==============================================
+
+ARQUIVOS EXPORTADOS (em C:\RelogioPonto\):
+===========================================
+
+1. ponto_mobile_complete.pem (3000 bytes) ← RECOMENDADO PARA CELULAR
+   Arquivo único contendo:
+   - Chave privada
+   - Certificado
+
+2. ponto_mobile.crt (1273 bytes)
+   Apenas o certificado (formato PEM)
+
+3. ponto_mobile.key (1679 bytes)
+   Apenas a chave privada (formato PEM)
+
+
+COMO TRANSFERIR PARA O CELULAR:
+================================
+
+1. VIA EMAIL:
+   - Envie o arquivo ponto_mobile_complete.pem por email
+   - Abra o email no celular
+   - Toque no arquivo para instalar
+
+2. VIA WHATSAPP / MESSENGER:
+   - Compartilhe o arquivo diretamente
+
+3. VIA USB (Android):
+   - Conecte o celular ao PC
+   - Copie o arquivo para uma pasta acessível
+   - Abra o gerenciador de arquivos no celular
+
+4. VIA NUVEM (Google Drive, OneDrive, etc):
+   - Faça upload do arquivo
+   - Abra no celular a partir da nuvem
+
+
+INSTALANDO EM ANDROID:
+======================
+
+Método 1: Via Gerenciador de Certificados (Recomendado)
+-
+
+-------
+
+1. Abra o arquivo ponto_mobile_complete.pem
+   (ou toque nele se já estiver transferido)
+
+2. O celular perguntará:
+   "Deseja instalar um certificado?"
+
+3. Selecione:
+   → "Armazenamento de credenciais"
+   → "VPN e aplicativos"
+   → Marque como confiável
+
+4. Pronto! Certificado instalado
+
+Método 2: Via Configurações Manuais
+------------------------------------
+
+1. Vá para: Configurações > Segurança > Certificados
+
+2. Selecione "Instalar certificado"
+
+3. Navegue até o arquivo ponto_mobile_complete.pem
+
+4. Selecione local de armazenamento
+
+5. Certificado será instalado
+
+
+INSTALANDO EM iOS / iPAD:
+=========================
+
+Método 1: Via Email (Recomendado)
+---------------------------------
+
+1. No PC, envie o arquivo por email
+
+2. No iPad/iPhone, abra o email
+
+3. Toque no arquivo ponto_mobile_complete.pem
+
+4. Sistema perguntará sobre instalação
+
+5. Clique em:
+   → "Mais" (se aparecer)
+   → "Carregar configuração"
+   → Selecione "Perfil de VPN e Dispositivo"
+
+6. Insira a senha (deixe em branco - sem senha)
+
+7. Confirme a instalação
+
+8. Vá para:
+   Configurações > Geral > VPN e Gerenciamento de Dispositivo
+   
+9. Selecione o certificado e marque como confiável
+
+Método 2: Via iCloud
+--------------------
+
+1. Faça upload do arquivo para iCloud Drive
+
+2. Abra no iPhone/iPad
+
+3. Siga os mesmos passos acima
+
+
+ACESSANDO O SISTEMA NO CELULAR:
+================================
+
+Após instalar o certificado:
+
+1. Abra o navegador (Chrome, Safari, Edge, Firefox)
+
+2. Digite a URL:
+   https://ponto.admin:5050
+
+   Alternativas:
+   - https://ponto.local:5050
+   - https://127.0.0.1:5050
+
+3. Sistema pode exigir escolher certificado
+   → Selecione "PontoPro"
+
+4. Insira as credenciais:
+   CPF (Usuário): 00000000000
+   Senha: Pont0!2024@Admin#Secure
+
+5. Pronto! Acesso ao RelogioPonto via celular
+
+
+AVISO DE SEGURANÇA NO NAVEGADOR:
+=================================
+
+É NORMAL ver um aviso como:
+
+  "Sua conexão não é privada"
+  "Este site não fornece certificado de segurança"
+  "Possível risco de segurança"
+
+PORQUE:
+  - O certificado é AUTO-SINADO (autossinado)
+  - Não é emitido por uma autoridade certificadora
+  - Mas É seguro para uso interno nesta rede
+
+PARA CONTINUAR:
+  1. Clique em "Detalhes" ou "Avançado"
+  2. Clique em "Continuar mesmo assim"
+  3. Ou "Aceitar o risco"
+  4. Clique em "Visitar site"
+
+Depois disso, o acesso funcionará normalmente!
+
+
+SOLUÇÃO DE PROBLEMAS:
+======================
+
+"Certificado expirado"
+  → Não deve acontecer até 2027 (válido 365 dias)
+
+"Certificado não instalado"
+  → Tente novamente com o arquivo ponto_mobile_complete.pem
+  → Use um app específico para gerenciar certificados
+
+"Não consigo acessar https://ponto.admin"
+  → Use o IP direto: https://127.0.0.1:5050
+  → Verifique se o WiFi está conectado
+  → Verifique se o PCestá ligado e servidor rodando
+
+"Senha não funciona"
+  → CPF: 00000000000 (exatamente)
+  → Senha: Pont0!2024@Admin#Secure (maiúsculas/minúsculas importam)
+
+"Erro de rede / Conexão recusada"
+  → PC no mesmo WiFi que o celular
+  → Firewall pode estar bloqueando
+  → Tente acessar durante o horário em que e o Flask está rodando
+
+
+INFORMAÇÕES DO CERTIFICADO:
+============================
+
+Validade: 365 dias (de 03/03/2026 até 03/03/2027)
+Domínios cobertos:
+  - ponto.local
+  - ponto.admin
+  - localhost
+  - 127.0.0.1
+  - *.localhost
+
+Tipo: Auto-sinado (self-signed)
+Algoritmo: RSA 2048 bits
+Formato PEM (compatível com Android e iOS)
+
+
+SEGURANÇA:
+==========
+
+✓ Certificado ssl, apenas para rede local
+✓ Não é exposto na internet
+✓ Dentro de uma rede privada/corporativa
+✓ Criptografa dados em trânsito
+✓ Previne ataques man-in-the-middle na rede local
+
+NÃO é adequado para:
+✗ Sites públicos na internet
+✗ Environments de produção real
+✗ Serviços com muitos usuários
+
+
+SUPORTE:
+=========
+
+Em caso de dúvidas:
+- Consulte o gerenciador de certificados do seu celular
+- Tente reinstalar o certificado
+- Verifique se o servidor está acessível via PC com: https://ponto.admin:5050
+
+Documentos adicionais:
+- CREDENCIAIS_ADMIN.txt (credenciais de acesso)
+- HTTPS_REDIRECT_STATUS.txt (configuração HTTPS)
+- exportar_para_celular.py (script de exportação)
+
+
+Data: 03/03/2026
+Sistema: RelogioPonto (Ponto eletrônico)
+Elaborado por: Suporte Técnico

@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    background: linear-gradient(135deg,#141e30,#243b55);
+    font-family: 'Inter', sans-serif;
+    color:white;
+    padding:40px;
+}
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    padding:30px;
+    border-radius:20px;
+    margin-bottom:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.4);
+}
+input, select {
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:none;
+    border-radius:10px;
+}
+button {
+    padding:12px 25px;
+    border:none;
+    border-radius:10px;
+    background:#00c6ff;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+h2 {
+    margin-bottom:20px;
+}
+.table {
+    width:100%;
+    margin-top:15px;
+}
+.table td {
+    padding:8px;
+}
+</style>
+</head>
+<body>
+
+<h1>Painel Administrativo</h1>
+
+
+<div style="background:#2ecc71;padding:15px;border-radius:10px;margin-bottom:20px;">
+Batidas geradas para 01/2026. Registros inseridos: 0
+</div>
+
+
+<div class="card">
+<h2>🏢 Cadastro da Empresa</h2>
+<form method="POST">
+<input type="hidden" name="form_tipo" value="empresa">
+<input name="nome_empresa" placeholder="Nome da Empresa" value="Teke Comercio de eletronicos" required>
+<input name="cnpj" placeholder="CNPJ" value="49.962.122/0001-58" required>
+<input name="endereco" placeholder="Endereço" value="Avenida Itaipava, 4126, Sala 12">
+<input name="logo" placeholder="URL do Logo" value="https://keepdata.com/pt/wp-content/uploads/2022/06/kd-logotipo-registrado.png">
+<button>Salvar Empresa</button>
+</form>
+</div>
+
+<div class="card">
+<h2>👤 Cadastro de Funcionário</h2>
+<form method="POST">
+<input type="hidden" name="form_tipo" value="funcionario">
+<input name="nome" placeholder="Nome" required>
+<input name="cpf" placeholder="CPF" maxlength="14" oninput="formatarCpf(this)" required>
+<input name="senha" placeholder="Senha" required>
+<input name="jornada" placeholder="Jornada diária (ex: 8)" required>
+<button>Cadastrar Funcionário</button>
+</form>
+</div>
+
+<div class="card">
+<h2>📋 Funcionários Cadastrados</h2>
+<table class="table">
+<tr>
+<td><strong>Nome</strong></td>
+<td><strong>CPF</strong></td>
+<td><strong>Jornada</strong></td>
+</tr>
+
+<tr>
+<td>Willian de MIranda</td>
+<td>07562840903</td>
+<td>8.0h</td>
+<td>
+    <a href="/admin/espelho?usuario_id=2" style="color:#00c6ff;">Ver Espelho</a>
+</td>
+</tr>
+
+<tr>
+<td>Ana Paula Laureano</td>
+<td>08853731974</td>
+<td>8.0h</td>
+<td>
+    <a href="/admin/espelho?usuario_id=3" style="color:#00c6ff;">Ver Espelho</a>
+</td>
+</tr>
+
+</table>
+</div>
+
+
+<div class="card">
+<h2>⚙️ Gerar Batidas Aleatórias (Mês/ Ano)</h2>
+<form method="POST" onsubmit="return confirmGerar();">
+<input type="hidden" name="form_tipo" value="gerar_batidas">
+<label>Selecionar Funcionário:</label>
+<select name="usuario_id">
+<option value="all">Todos Funcionários</option>
+
+<option value="2">Willian de MIranda</option>
+
+<option value="3">Ana Paula Laureano</option>
+
+</select>
+
+<div style="display:flex;gap:10px;margin-top:10px;">
+    <div style="flex:1;">
+        <label>Mês (1-12):</label>
+        <input name="mes" type="number" min="1" max="12" placeholder="Mês (opcional)">
+    </div>
+    <div style="flex:1;">
+        <label>Ano (ex: 2026):</label>
+        <input name="ano" type="number" min="2000" max="3000" placeholder="Ano (opcional)">
+    </div>
+</div>
+
+<button type="submit" style="margin-top:12px;">Gerar Batidas</button>
+</form>
+
+<script>
+function confirmGerar(){
+    return confirm('Confirma gerar batidas aleatórias para o mês selecionado? Isso NÃO irá sobrescrever dias que já possuem registros.');
+}
+</script>
+<script src="static/cpf.js"></script>
+</div>
+
+<a href="/dashboard" style="color:white;">Voltar</a>
+
+<h2>Administrador - Inserir Batida Manual</h2>
+
+<div class="card">
+<form method="POST" action="/admin/editar">
+<select name="usuario_id">
+
+<option value="2">Willian de MIranda</option>
+
+<option value="3">Ana Paula Laureano</option>
+
+</select>
+<input type="datetime-local" name="data_hora" required>
+<select name="tipo">
+<option value="entrada">Entrada</option>
+<option value="saida">Saída</option>
+</select>
+<button>Salvar</button>
+</form>
+</div>
+
+<a href="/dashboard">Voltar</a>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^python app\\.py$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "C:/RelogioPonto/.venv/Scripts/python.exe": true,
+        "New-ScheduledTaskAction": true,
+        "New-ScheduledTaskTrigger": true,
+        "Register-ScheduledTask": true,
+        "schtasks": true,
+        "Get-CimInstance": true,
+        "Test-Path": true,
+        "Get-NetTCPConnection": true,
+        "Set-Content": true,
+        ".\\restart_app.bat": true,
+        "/^python jamef_tracking_app\\.py$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "Move-Item": true
+    }
+}

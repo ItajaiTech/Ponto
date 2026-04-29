@@ -1,0 +1,94 @@
+Resumo de Implementação: Redirecionamento HTTP → HTTPS
+======================================================
+
+Status: ✓ IMPLEMENTADO COM SUCESSO
+
+
+1. CONFIGURAÇÃO DE REDIRECIONAMENTO
+====================================
+
+O sistema agora roda em 4 portas:
+
+PORTA   | PROTOCOLO | PROPÓSITO
+--------|-----------|------------------------------------------
+5000    | HTTPS     | Servidor HTTPS Principal (Funcionário)
+5050    | HTTPS     | Servidor HTTPS Admin (Administrador)
+6000    | HTTP      | Redirecionador para https://..../5000
+6050    | HTTP      | Redirecionador para https://..../5050
+
+
+2. COMO ACESSAR O SISTEMA
+==========================
+
+RECOMENDADO (acesso direto HTTPS - mais rápido):
+  - Funcionário:  https://ponto.local:5000
+  - Admin:        https://ponto.admin:5050
+  - IP direto:    https://127.0.0.1:5000 ou https://127.0.0.1:5050
+
+COM REDIRECT (acesso HTTP que redireciona para HTTPS):
+  - Funcionário:  http://ponto.local:6000 → https://ponto.local:5000
+  - Admin:        http://ponto.admin:6050 → https://ponto.admin:5050
+  - IP direto:    http://127.0.0.1:6000 → https://127.0.0.1:5000
+
+
+3. TESTES REALIZADOS
+====================
+
+✓ HTTP redirect porta 6000 → HTTPS porta 5000
+  - http://127.0.0.1:6000 → https://127.0.0.1:5000  [Status: 200 OK]
+  - http://ponto.local:6000 → https://ponto.local:5000  [Status: 200 OK]
+
+✓ HTTPS direto funcional
+  - https://ponto.local:5000  [Status: 200 OK]
+  - https://127.0.0.1:5000  [Status: 200 OK]
+  - https://127.0.0.1:5050  [Status: 200 OK] [Primeiro: ~8s, Depois: <1s]
+
+✓ Certificado SSL
+  - Auto-sinado válido por 365 dias
+  - Cobre: ponto.local, ponto.admin, localhost, 127.0.0.1
+  - Arquivo: C:\RelogioPonto\certs\ponto.crt e ponto.key
+
+
+4. CARACTERÍSTICAS DO REDIRECT
+==============================
+
+- Status HTTP: 301 (Moved Permanently)
+- Seguro: Redireciona HTTP para HTTPS automaticamente
+- Transparente: Funciona em navegadores modernos
+- Sem erros de certificado: Redirecionador usa HTTP puro
+
+
+5. AVISO DE CERTIFICADO
+========================
+
+Como o certificado é auto-sinado:
+1. Navegadores mostrarão aviso de segurança
+2. Clique em "Avançado" ou equivalente
+3. Selecione "Continuar mesmo assim" ou "Aceitar risco"
+4. O sistema funcionará normalmente após isso
+
+
+6. RECOMENDAÇÃO PARA O USUÁRIO
+===============================
+
+Use os acessos diretos HTTPS quando possível:
+  ✓ https://ponto.local:5000 (mais rápido, sem intermediários)
+  ✓ https://ponto.admin:5050
+
+Se não conseguir acessar HTTPS diretamente:
+  → Use http://ponto.local:6000 que redireciona automaticamente
+
+
+7. PRÓXIMOS PASSOS (OPCIONAL)
+=============================
+
+Para melhor performance em produção:
+- Usar certificado válido (não auto-sinado) de CA pública
+- Considerar usar nginx como reverse proxy
+- Ativar HSTS (HTTP Strict-Transport-Security)
+- Implementar rate limiting para proteger ports
+
+
+Data de implementação: 03/03/2026
+Sistema: RelogioPonto (Ponto eletrônico)
+Versão: Com redirecionamento HTTP→HTTPS

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Feriados - Relógio de Ponto</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f7f7f7; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #0001; padding: 32px; }
+        h1 { color: #0072ff; }
+        table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        th, td { padding: 8px; border-bottom: 1px solid #eee; text-align: left; }
+        th { background: #f0f8ff; }
+        form { margin-top: 24px; display: flex; gap: 8px; }
+        input[type="number"] { width: 80px; }
+        button { background: #0072ff; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #005bb5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Feriados cadastrados</h1>
+        <table>
+            <thead>
+                <tr><th>Mês</th><th>Dia</th><th>Ação</th></tr>
+            </thead>
+            <tbody>
+                {% for mes, dia in feriados %}
+                <tr>
+                    <td>{{ mes }}</td>
+                    <td>{{ dia }}</td>
+                    <td>
+                        <form method="post" action="/feriados/remover" style="display:inline;">
+                            <input type="hidden" name="mes" value="{{ mes }}">
+                            <input type="hidden" name="dia" value="{{ dia }}">
+                            <button type="submit">Remover</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h2>Adicionar feriado</h2>
+        <form method="post" action="/feriados/adicionar">
+            <input type="number" name="mes" min="1" max="12" required placeholder="Mês">
+            <input type="number" name="dia" min="1" max="31" required placeholder="Dia">
+            <button type="submit">Adicionar</button>
+        </form>
+
+        <h2>Atualizar feriados nacionais</h2>
+        <form method="post" action="/feriados/atualizar" style="margin-top:16px;display:flex;gap:8px;align-items:center;">
+            <input type="number" name="ano" min="2000" max="2100" value="{{ ano or '' }}" placeholder="Ano">
+            <button type="submit">Buscar BrasilAPI Nacional</button>
+        </form>
+
+        <form method="post" action="/feriados/atualizar_estadual_municipal" style="margin-top:8px;display:flex;gap:8px;align-items:center;">
+            <input type="number" name="ano" min="2000" max="2100" value="{{ ano or '' }}" placeholder="Ano">
+            <button type="submit">Buscar PR, SC, Foz do Iguaçu, Itajaí</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+CREDENCIAIS DO ADMINISTRADOR - RELÓGIOPONTO
+=============================================
+
+SEGURANÇA ATUALIZADA
+====================
+Data: 03/03/2026
+Ação: Senha do admin atualizada para uma senha complexa
+
+CREDENCIAIS ATUAIS:
+===================
+CPF/Usuário: 00000000000
+Senha: Pont0!2024@Admin#Secure
+
+CARACTERÍSTICAS DA SENHA:
+=========================
+✓ Maiúsculas: P, A, S
+✓ Minúsculas: ont, dmin, ecure
+✓ Números: 0, 2024
+✓ Caracteres especiais: !, @, #
+✓ Comprimento: 25 caracteres
+✓ Complexidade: ALTA
+
+COMO ACESSAR O ADMIN:
+====================
+
+1. DIRETO VIA HTTPS (recomendado):
+   - URL: https://ponto.admin:5050
+   - Alternativa: https://127.0.0.1:5050
+   - Usuário: 00000000191
+   - Senha: Pont0!2024@Admin#Secure
+
+2. VIA HTTP COM REDIRECT (automático para HTTPS):
+   - URL: http://ponto.admin:6050
+   - Alternativa: http://127.0.0.1:6050
+   - Usuário: 00000000191
+   - Senha: Pont0!2024@Admin#Secure
+
+AVISO DE CERTIFICADO:
+====================
+O certificado SSL é auto-sinado, então:
+1. O navegador exibirá um aviso de segurança
+2. Clique em "Avançado" ou "Detalhes"
+3. Selecione "Continuar mesmo assim" ou "Aceitar risco"
+4. O sistema funcionará normalmente
+
+MUDANÇAS REALIZADAS:
+====================
+✓ Senha atualizada no banco de dados (ponto.db)
+✓ Todos os scripts de teste atualizados com nova senha
+✓ Credenciais hardcoded nos testes:
+  - check_weekday.py
+  - test_formato_hora.py
+  - test_formato_hora2.py
+  - test_export_simple.py
+  - test_export_final.py
+  - test_export_session.py
+  - test_export_web.py
+✓ Script de atualização criado: atualizar_senha_admin.py
+
+RECOMENDAÇÕES DE SEGURANÇA:
+==========================
+1. Guarde esta senha em local seguro
+2. Use um gerenciador de senhas
+3. Não compartilhe com terceiros
+4. Altere periodicamente (a cada 90 dias)
+5. Não use a mesma senha em outros sistemas
+
+RECUPERAÇÃO DE SENHA:
+====================
+Se esquecer a senha:
+1. Execute: python atualizar_senha_admin.py
+2. Ou execute: python criar_admin.py
+3. Depois execute novamente: python atualizar_senha_admin.py
+
+TESTE DA NOVA SENHA:
+===================
+Para testar a nova senha via Python:
+
+  import requests
+  session = requests.Session()
+  r = session.post(
+      'https://127.0.0.1:5050/admin',
+      data={'cpf': '00000000191', 'senha': 'Pont0!2024@Admin#Secure'},
+      verify=False  # para certificado auto-sinado
+  )
+  print(f"Status: {r.status_code}")
+  print(f"URL: {r.url}")
+
+SUPORTE:
+=========
+Qualquer dúvida, consulte os arquivos:
+- HTTPS_REDIRECT_STATUS.txt (configuração HTTPS)
+- restart_scheduler.py (reinicio automático)
+- app.py (aplicação principal)
+
+Desenvolvido por: Itajaitech
+Data: 03/03/2026

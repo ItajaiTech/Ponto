@@ -1,0 +1,18 @@
+[SSL] OK - Certificados encontrados - usando HTTPS
+
+Servidor iniciado:
+  Funcionario: https://ponto.local:5000
+  Admin:       https://ponto.admin:5050
+
+Redirects HTTP automaticos:
+  http://ponto.local:5000     (porta 6000) -> https://ponto.local:5000
+  http://ponto.admin:5050     (porta 6050) -> https://ponto.admin:5050
+
+ * Serving Flask app 'app'
+ * Serving Flask app 'app'
+ * Serving Flask app 'app'
+ * Serving Flask app 'app'
+ * Debug mode: off
+ * Debug mode: off
+ * Debug mode: on
+ * Debug mode: off
