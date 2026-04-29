@@ -2214,3 +2214,8 @@
 2026-04-29 16:27:40 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:27:40] "[32mGET /admin HTTP/1.1[0m" 302 -
 2026-04-29 16:27:40 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:27:40] "GET /admin/espelho?usuario_id=1 HTTP/1.1" 200 -
 2026-04-29 16:27:41 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:27:41] "[36mGET /favicon.ico HTTP/1.1[0m" 304 -
+2026-04-29 16:27:43 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:27:43] "GET /admin/funcionarios HTTP/1.1" 200 -
+2026-04-29 16:27:43 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:27:43] "GET /static/cpf.js HTTP/1.1" 200 -
+2026-04-29 16:27:43 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:27:43] "[36mGET /favicon.ico HTTP/1.1[0m" 304 -
+2026-04-29 16:27:46 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:27:46] "GET /admin/espelho?usuario_id=2 HTTP/1.1" 200 -
+2026-04-29 16:27:46 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 16:27:46] "[36mGET /favicon.ico HTTP/1.1[0m" 304 -
