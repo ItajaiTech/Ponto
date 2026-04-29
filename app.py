@@ -143,14 +143,14 @@ def calcular_horas_do_dia(registros):
     )
 
 # Rota para favicon.ico (deve ser registrada após o app ser criado)
-@app.route('/favicon.ico')
+@app.route('/favicon.ico', methods=['GET'])
 def favicon():
-    caminho = os.path.join('static', 'favicon.ico')
+    caminho = os.path.join('static', 'favicon-clock.svg')
     logging.warning(f"Tentando servir favicon em: {os.path.abspath(caminho)}")
     if not os.path.exists(caminho):
-        logging.error("favicon.ico não encontrado!")
+        logging.error("favicon-clock.svg não encontrado!")
         return '', 404
-    return send_from_directory('static', 'favicon.ico')
+    return send_from_directory('static', 'favicon-clock.svg', mimetype='image/svg+xml')
 
 # Handler para erro 404
 @app.errorhandler(404)
@@ -289,6 +289,7 @@ HEAD_TAG = "<head>"
 
 def render_with_theme(template, **context):
     theme_script = (
+        '<link rel="icon" type="image/svg+xml" href="/favicon.ico">'
         '<script>(function(){var m=document.cookie.match(/(?:^|; )theme=([^;]+)/);'
         'var t=m?m[1]:"green";document.documentElement.setAttribute("data-theme",t);})();</script>'
     )

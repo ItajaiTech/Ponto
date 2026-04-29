@@ -11,7 +11,8 @@ from datetime import datetime, timedelta, UTC
 from ipaddress import ip_address
 import os
 
-CERTS_DIR = r'C:\RelogioPonto\certs'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CERTS_DIR = os.path.join(BASE_DIR, 'certs')
 KEY_FILE = os.path.join(CERTS_DIR, 'ponto.key')
 CERT_FILE = os.path.join(CERTS_DIR, 'ponto.crt')
 
@@ -31,6 +32,7 @@ def build_san_entries(domains):
 def generate_certificates(domains):
     """Gera certificado autossinado para os domínios especificados"""
     
+    os.makedirs(CERTS_DIR, exist_ok=True)
     print(f"[*] Gerando certificado para: {', '.join(domains)}")
     
     # Gerar chave privada

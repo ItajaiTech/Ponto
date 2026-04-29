@@ -2,7 +2,10 @@
 # Este script deve ser registrado no Windows Task Scheduler para executar no startup
 # Executar com: powershell -ExecutionPolicy Bypass -NoProfile -File auto_start_flask_v2.ps1
 
-$appPath = "C:\RelogioPonto"
+$appPath = $PSScriptRoot
+if (-not $appPath) {
+    $appPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+}
 $pythonExe = "$appPath\.venv\Scripts\python.exe"
 $appScript = "$appPath\app.py"
 $logFile = "$appPath\auto_start.log"

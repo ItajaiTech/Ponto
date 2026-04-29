@@ -27,7 +27,7 @@ schtasks /delete /tn "RelogioPonto" /f >nul 2>&1
 
 echo [2/3] Criando nova tarefa agendada...
 schtasks /create /tn "RelogioPonto" ^
-    /tr "powershell -ExecutionPolicy Bypass -NoProfile -File C:\RelogioPonto\auto_start_flask_v2.ps1" ^
+    /tr "powershell -ExecutionPolicy Bypass -NoProfile -File C:\RelogioPonto\Ponto\auto_start_flask_v2.ps1" ^
     /sc onlogon ^
     /ru %USERNAME% ^
     /f

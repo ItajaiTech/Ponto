@@ -1,5 +1,8 @@
 # Inicia o RelogioPonto usando o ambiente virtual proprio
-$appPath = "C:\RelogioPonto"
+$appPath = $PSScriptRoot
+if (-not $appPath) {
+    $appPath = Split-Path -Parent $MyInvocation.MyCommand.Path
+}
 $pythonExe = "$appPath\.venv\Scripts\python.exe"
 
 if (-not (Test-Path $pythonExe)) {
