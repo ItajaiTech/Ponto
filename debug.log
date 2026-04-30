@@ -2300,3 +2300,18 @@
 2026-04-29 17:01:15 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 17:01:15] "[36mGET /favicon.ico HTTP/1.1[0m" 304 -
 2026-04-29 17:01:25 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 17:01:25] "GET / HTTP/1.1" 200 -
 2026-04-29 17:03:21 INFO werkzeug 127.0.0.1 - - [29/Apr/2026 17:03:21] "GET / HTTP/1.1" 200 -
+2026-04-30 08:20:46 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 08:20:46] "GET / HTTP/1.1" 200 -
+2026-04-30 08:23:35 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 08:23:35] "GET / HTTP/1.1" 200 -
+2026-04-30 08:23:50 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 08:23:50] "GET / HTTP/1.1" 200 -
+2026-04-30 08:26:14 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 08:26:14] "GET / HTTP/1.1" 200 -
+2026-04-30 08:26:18 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 08:26:18] "GET / HTTP/1.1" 200 -
+2026-04-30 08:26:23 DEBUG login Tentativa: entrada='075.628.409-03' cpf_normalizado='07562840903'
+2026-04-30 08:26:23 DEBUG login Usuário encontrado: id=2 tipo=funcionario cpf=07562840903
+2026-04-30 08:26:23 DEBUG login Login OK: id=2 tipo=funcionario host=ponto.local
+2026-04-30 08:26:23 DEBUG login Redirecionando funcionário para /funcionario.
+2026-04-30 08:26:23 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 08:26:23] "[32mPOST / HTTP/1.1[0m" 302 -
+2026-04-30 08:26:23 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 08:26:23] "GET /funcionario HTTP/1.1" 200 -
+2026-04-30 08:26:24 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 08:26:24] "[32mPOST /bater HTTP/1.1[0m" 302 -
+2026-04-30 08:26:24 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 08:26:24] "GET /funcionario?msg=Batida%20'entrada'%20registrada%20com%20sucesso! HTTP/1.1" 200 -
+2026-04-30 08:26:25 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 08:26:25] "GET /funcionario HTTP/1.1" 200 -
+2026-04-30 08:26:25 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 08:26:25] "[36mGET /favicon.ico HTTP/1.1[0m" 304 -
