@@ -35,6 +35,11 @@ schtasks /create /tn "RelogioPonto" ^
 if %errorLevel% neq 0 goto fail
 
 echo [3/3] Sucesso!
+echo [4/4] Iniciando RelogioPonto agora...
+schtasks /run /tn "RelogioPonto" >nul 2>&1
+if %errorLevel% neq 0 (
+    echo AVISO: Tarefa registrada, mas nao foi possivel iniciar agora nesta sessao.
+)
 echo.
 echo =========================================
 echo TAREFA REGISTRADA COM SUCESSO!

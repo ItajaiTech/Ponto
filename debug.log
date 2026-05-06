@@ -2328,3 +2328,13 @@
 2026-04-30 12:41:18 INFO werkzeug 127.0.0.1 - - [30/Apr/2026 12:41:18] "GET / HTTP/1.1" 200 -
 2026-05-04 08:25:21 INFO werkzeug 127.0.0.1 - - [04/May/2026 08:25:21] "GET / HTTP/1.1" 200 -
 2026-05-04 08:53:48 INFO werkzeug 127.0.0.1 - - [04/May/2026 08:53:48] "GET / HTTP/1.1" 200 -
+2026-05-06 08:39:04 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6000
+ * Running on http://192.168.1.10:6000
+2026-05-06 08:39:04 INFO werkzeug [33mPress CTRL+C to quit[0m
+2026-05-06 08:39:04 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on https://127.0.0.1:5000
+ * Running on https://192.168.1.10:5000
+2026-05-06 08:39:04 INFO werkzeug [33mPress CTRL+C to quit[0m
